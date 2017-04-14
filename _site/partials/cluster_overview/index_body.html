@@ -4,7 +4,7 @@
       <i class="fa fa-fw fa-check"></i>
     </span>
   </a>
-  <span id="{{shard.id}}" class="normal-action" ng-repeat="shard in cluster.getShards(node.id, index.name) track by $index">
+  <span id="{{shard.id}}" class="normal-action" ng-repeat="shard in cluster.getShards(node.id, index.name) | orderBy:'shard' track by $index ">
     <span class="dropdown">
       <a data-toggle="dropdown" href="#" target="_self">
         <span class="shard {{shard.primary ? 'shard-primary' : ''}} shard-{{shard.state.toLowerCase()}} {{relocatingShard && relocatingShard.id === shard.id ? 'shard-relocation-source' : ''}}">
